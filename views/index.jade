@@ -2,17 +2,24 @@ extends layout
 
 block content
   h1.text-center Shopping Cart
-  div
-    table
-      thead
-        tr: th Products
-        tbody
-          each product in products
-            tr
-              td #{product.name}
-              td #{product.description}
-  a(href='/products/add') Keep Shopping
+  a(href='/products/add') Add Custom Product
   br
-  a(href='/products/list') See All Products
+  a(href='/products') See All Products
+  div
+    table.table
+      thead
+        tr 
+          th Products
+          th Description
+          th Price
+          th Remove Product
+      tbody
+        each product in products
+          tr(data-_id='#{product._id}')
+            td #{product.name}
+            td #{product.description}
+            td #{product.price}
+            td
+              a.delete Remove Product
 block script
-  script(src='javascripts/main.js')
+  script(src='../javascripts/main.js')

@@ -15,14 +15,4 @@ router.get('/', function(req, res, next) {
 	});
 });
 
-router.post('/', function(req, res) {
-	var product = new Product(req.body);
-	product.save(function(err, savedProduct) {
-		if (err) throw err;
-		console.log('product added');
-		res.send(savedProduct);
-	})
-})
-
-
 module.exports = router;

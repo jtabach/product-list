@@ -1,5 +1,27 @@
 extends layout
 
 block content
-  h1.text-center Add Product
- 
+  h1.text-center Add Custom Product
+  a(href='/') Back to Cart
+  br
+  a(href='/products') Product List
+  form.form-horizontal
+    .form-group.col-sm-6
+      label.col-sm-3.control-label Product *
+      .col-sm-9
+        input#name.form-control(type='text', placeholder='Product name', required='')
+    .form-group.col-sm-6
+      label.col-sm-3.control-label Description
+      .col-sm-9
+        input#description.input-medium.bfh-phone.form-control(type='text', data-format='+1 (ddd) ddd-dddd', placeholder='(Optional)')
+    .form-group.col-sm-6
+      label.col-sm-3.control-label Price *
+      .col-sm-9
+        input#price.form-control(type='text', placeholder='$00.00', required='')
+    .form-group.col-sm-6
+      label.col-sm-3.control-label Image Url *
+      .col-sm-9
+        input#imageurl.form-control(type='text', placeholder='Copy image address and paste here ', required='')
+    button#addCustomProduct.btn.btn-success.col-sm-offset-6.col-sm-2(type='submit') Add To Cart
+block script
+  script(src='../javascripts/main.js')
