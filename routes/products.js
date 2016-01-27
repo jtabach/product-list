@@ -5,14 +5,16 @@ var router = express.Router();
 
 var Product = require('../models/product');
 
-router.get('/', function(req, res, next) {
-	Product.find({}, function(err, products) {
-		console.log('err:', err);
-		console.log('products', products);
-
-		res.send(potions);
-	});
+router.get('/add', function(req, res, next) {
+		res.render('addProduct');
 });
 
+router.post('/add', function(req, res, next) {
+	
+});
+
+router.get('/list', function(req, res, next) {
+		res.render('listProducts');
+});
 
 module.exports = router;

@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1.text-center Shopping Cart
+  div
+    table
+      thead
+        tr: th Products
+        tbody
+          each product in products
+            tr
+              td #{product.name}
+              td #{product.description}
+  a(href='/products/add') Keep Shopping
+  br
+  a(href='/products/list') See All Products
+block script
+  script(src='javascripts/main.js')
