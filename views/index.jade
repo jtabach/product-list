@@ -23,11 +23,11 @@ block content
               img.small(src='#{product.imageurl}')
             td.searchable #{product.name}
             td.searchable #{product.description}
-            td.searchable $#{product.price} 
+            td.searchable.price $#{product.price} 
             td
               a.edit Info/Edit
             td
               a.delete Remove Product
-    h3 Total: $#{total}
+    h3#total Total: $#{total}
 block script
   script(src='../javascripts/main.js')

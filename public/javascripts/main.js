@@ -80,12 +80,15 @@ function editComplete(e) {
 }
 
 function searchList() {
-	var text = $('#search').val();
-	console.log(text);
-	console.log($rows.children('tr'));
+	var queryString = $('#search').val().toLowerCase();
 	var $filtered = $rows.filter(function() {
-		return $(this).children('.searchable').text().includes(text);
+		return $(this).children('.searchable').text().toLowerCase().includes(queryString);
 	});
+	var sum = 0.00;
+	$filtered.children('.price').each(function(i, val) {
+		sum += parseFloat($(val).text().slice(1));
+	});
+	$('#total').text(`Total: $${sum}`);
 	$('tbody').empty().append($filtered);
 }
 
