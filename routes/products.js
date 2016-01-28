@@ -29,4 +29,13 @@ router.delete('/delete/:productId', function(req, res) {
 	});
 });
 
+router.get('/info/:productId', function(req, res) {
+	console.log(req.params.productId);
+	Product.findById(req.params.productId, function(err, product) {
+		console.log('err:', err);
+		console.log('product', product);
+		res.render('infoProduct', {product: product});
+	});
+});
+
 module.exports = router;

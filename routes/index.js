@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 		console.log('products', products);
 		var total = products.reduce(function(prev, curr) {
 			return prev + curr.price;
-		},0);
+		},0).toFixed(2);
 		res.render('index',
 			{ products: products, total: total }
 		);

@@ -9,18 +9,24 @@ block content
     table.table
       thead
         tr 
+          th Product Image
           th Products
           th Description
           th Price
+          th More Info
           th Remove Product
       tbody
         each product in products
           tr(data-_id='#{product._id}')
+            td
+              img.small(src='#{product.imageurl}')
             td #{product.name}
             td #{product.description}
-            td #{product.price}
+            td $#{product.price} 
+            td
+              a.edit Info/Edit
             td
               a.delete Remove Product
-    h3 #{total}
+    h3 Total: $#{total}
 block script
   script(src='../javascripts/main.js')

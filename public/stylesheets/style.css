@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+.small {
+	height: 80px;
+	width: 80px;
+}
+
+.large {
+	height: 300px;
+	width: 300px;
+}
+
+#infoForm {
+	margin-top: 50px;
+}

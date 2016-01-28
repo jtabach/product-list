@@ -5,6 +5,7 @@ $(document).ready(init);
 function init() {
 	$('form').submit(addCustomProduct);
 	$('div').on('click', '.delete', removeProduct);
+	$('div').on('click', '.edit', editProduct);
 }
 
 function addCustomProduct(e) {
@@ -39,4 +40,16 @@ function removeProduct() {
 			location.replace('/');
 		}
 	});
+}
+
+function editProduct() {
+	var id = $(this).closest('tr').data('_id');
+	$.get(`/products/info/${id}`)
+	.done(function(data) {
+		console.log(data);
+		window.location = `/products/info/${id}`;
+	})
+	.fail(function(err) {
+		console.log('err', err);
+	})
 }
