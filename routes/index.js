@@ -9,8 +9,11 @@ router.get('/', function(req, res, next) {
 	Product.find({}, function(err, products) {
 		console.log('err:', err);
 		console.log('products', products);
+		var total = products.reduce(function(prev, curr) {
+			return prev + curr.price;
+		},0);
 		res.render('index',
-			{ products: products }
+			{ products: products, total: total }
 		);
 	});
 });

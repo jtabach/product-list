@@ -32,7 +32,7 @@ function removeProduct() {
 	var id = $(this).closest('tr').data('_id');
 	console.log(id);
 	$.ajax({
-		url: '/products/delete/' + id + '',
+		url: `/products/delete/${id}`,
 		type: 'DELETE',
 		success: function(data) {
 			console.log('found id');
