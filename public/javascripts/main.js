@@ -2,11 +2,16 @@
 
 $(document).ready(init);
 
+var $rows;
+
 function init() {
 	$('#addForm').submit(addCustomProduct);
 	$('div').on('click', '.delete', removeProduct);
 	$('div').on('click', '.edit', editProduct);
 	$('#editForm').submit(editComplete);
+	$('#search').keyup(searchList);
+	$rows = $('.dataRow');
+	// $('tbody').empty().append($rows);
 }
 
 function addCustomProduct(e) {
@@ -73,3 +78,40 @@ function editComplete(e) {
 		}
 	});
 }
+
+function searchList() {
+	var text = $('#search').val();
+	console.log(text);
+	console.log($rows.children('tr'));
+	var $filtered = $rows.filter(function() {
+		return $(this).children('.searchable').text().includes(text);
+	});
+	$('tbody').empty().append($filtered);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

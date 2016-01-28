@@ -40,7 +40,6 @@ router.get('/info/:productId', function(req, res) {
 
 router.put('/edit/:productId', function(req, res) {
 	Product.findById(req.params.productId, function(err, product) {
-		console.log('newItem:', req.body);
 		product.name = req.body.name;
 		product.description = req.body.description;
 		product.price = req.body.price;
