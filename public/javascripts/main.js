@@ -13,11 +13,11 @@ function init() {
 	$('#products').click(sortByName);
 	$rows = $('.dataRow');
 	$('#price').click(sortByPrice);
+	priceFixed();
 }
 
 function addCustomProduct(e) {
 	e.preventDefault();
-	console.log('added');
 	var name = $('#name').val();
 	var description = $('#description').val();
 	var price = $('#price').val();
@@ -26,23 +26,20 @@ function addCustomProduct(e) {
 	$.post('/products/add', {
 		name: name,
 		description: description,
-		price: price,
+		price: Number(price).toFixed(2),
 		imageurl: imageurl
 	})
 	.success(function(data) {
-		console.log('ok');
 		location.replace('/');
 	})
 }
 
 function removeProduct() {
 	var id = $(this).closest('tr').data('_id');
-	console.log(id);
 	$.ajax({
 		url: `/products/delete/${id}`,
 		type: 'DELETE',
 		success: function(data) {
-			console.log('found id');
 			location.replace('/');
 		}
 	});
@@ -52,7 +49,6 @@ function editProduct() {
 	var id = $(this).closest('tr').data('_id');
 	$.get(`/products/info/${id}`)
 	.done(function(data) {
-		console.log(data);
 		window.location = `/products/info/${id}`;
 	})
 	.fail(function(err) {
@@ -63,7 +59,6 @@ function editProduct() {
 function editComplete(e) {
 	e.preventDefault();
 	var id = $(this).find('button').data('_id');
-	console.log(id);
 	$.ajax({
 		url: `/products/edit/${id}`,
 		type: 'PUT',
@@ -74,7 +69,6 @@ function editComplete(e) {
 			imageurl: $('#imageurlEdit').val()
 		},
 		success: function(data) {
-			console.log('found id');
 			location.replace('/');
 		}
 	});
@@ -117,7 +111,12 @@ function sortByPrice() {
 	$('tbody').empty().append($rows);
 }
 
-
+function priceFixed() {
+	$('.price').each(function(i, val) {
+		var corrText = "$" + parseFloat($(val).text().slice(1)).toFixed(2);
+		$(val).text(corrText);
+	});
+}
 
 
 

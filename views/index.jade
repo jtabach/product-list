@@ -3,17 +3,17 @@ extends layout
 block content
   h1.text-center Shopping Cart
   a(href='/products/add') Add Custom Product
-  br
-  a(href='/products') See All Products
   input#search.form-control(type='text', placeholder='Product name', required='' value='')
   div
     table.table
       thead
         tr 
           th Product Image
-          th#products(data-sort=1) Products
+          th#products(data-sort=1) Products 
+            span.glyphicon.glyphicon-sort
           th Description
-          th#price(data-sort=1) Price
+          th#price(data-sort=1) Price 
+            span.glyphicon.glyphicon-sort
           th More Info
           th Remove Product
       tbody

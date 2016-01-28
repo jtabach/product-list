@@ -3,8 +3,6 @@ extends layout
 block content
   h1.text-center Add Custom Product
   a(href='/') Back to Cart
-  br
-  a(href='/products') Product List
   form.form-horizontal#addForm
     .form-group.col-sm-6
       label.col-sm-3.control-label Product *
@@ -13,11 +11,11 @@ block content
     .form-group.col-sm-6
       label.col-sm-3.control-label Description
       .col-sm-9
-        input#description.input-medium.bfh-phone.form-control(type='text', data-format='+1 (ddd) ddd-dddd', placeholder='(Optional)')
+        input#description.form-control(type='text', placeholder='(Optional)')
     .form-group.col-sm-6
       label.col-sm-3.control-label Price *
       .col-sm-9
-        input#price.form-control(type='text', placeholder='$00.00', required='')
+        input#price.form-control(type='number', step=".01", min='0' placeholder='$00.00', required='')
     .form-group.col-sm-6
       label.col-sm-3.control-label Image Url *
       .col-sm-9
