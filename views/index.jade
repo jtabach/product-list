@@ -1,11 +1,12 @@
 extends layout
 
 block content
-  h1.text-center Shopping Cart
-  div.text-right
-    a(href='/products/add') Add Custom Product
-  label Search: 
-  input#search.form-control(type='text', placeholder='Search Here', required='' value='') 
+  h1.text-center#shoppingCart Shopping Cart
+  a(href='/products/add') Add Custom Product
+  .row#searchBar
+    label.col-xs-offset-3.col-xs-1 Search: 
+    input#search.col-xs-5(type='text', placeholder='Search Here', required='' value='') 
+  br  
   div
     table.table
       thead

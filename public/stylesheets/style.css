@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 a {
@@ -19,4 +20,35 @@ a {
 
 #editForm {
 	margin-top: 50px;
+}
+
+.edit:hover, 
+.delete:hover {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+#products,
+#price {
+	cursor: pointer;
+}
+
+td, th {
+	font-size: 18px;
+}
+
+#productInfo {
+	margin-bottom: 50px;
+}
+
+#shoppingCart {
+	margin-bottom: 25px;
+}
+
+#searchBar {
+	margin-bottom: 25px;
+}
+
+#searchBar label {
+	font-size: 22px;
 }
