@@ -2,8 +2,10 @@ extends layout
 
 block content
   h1.text-center Shopping Cart
-  a(href='/products/add') Add Custom Product
-  input#search.form-control(type='text', placeholder='Product name', required='' value='')
+  div.text-right
+    a(href='/products/add') Add Custom Product
+  label Search: 
+  input#search.form-control(type='text', placeholder='Search Here', required='' value='') 
   div
     table.table
       thead
