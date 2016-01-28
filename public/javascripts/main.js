@@ -10,8 +10,9 @@ function init() {
 	$('div').on('click', '.edit', editProduct);
 	$('#editForm').submit(editComplete);
 	$('#search').keyup(searchList);
+	$('#products').click(sortByName);
 	$rows = $('.dataRow');
-	// $('tbody').empty().append($rows);
+	$('#price').click(sortByPrice);
 }
 
 function addCustomProduct(e) {
@@ -88,33 +89,26 @@ function searchList() {
 	$filtered.children('.price').each(function(i, val) {
 		sum += parseFloat($(val).text().slice(1));
 	});
+	sum = sum.toFixed(2);
+
 	$('#total').text(`Total: $${sum}`);
 	$('tbody').empty().append($filtered);
 }
 
+function sortByName() {
+	$rows.sort(function(a,b) {
+		var aVal = $(a).children('.product').text().toLowerCase()
+		var bVal = $(b).children('.product').text().toLowerCase();
+		return (aVal<bVal) ? -1 : 1;
+	});
+	$('tbody').empty().append($rows);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function sortByPrice() {
+	$rows.sort(function(a,b) {
+		var aVal = $(a).children('.price').text().slice(1);
+		var bVal = $(b).children('.price').text().slice(1);
+		return aVal-bVal;
+	});
+	$('tbody').empty().append($rows);
+}

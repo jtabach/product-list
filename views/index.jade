@@ -11,9 +11,9 @@ block content
       thead
         tr 
           th Product Image
-          th Products
+          th#products Products
           th Description
-          th Price
+          th#price Price
           th More Info
           th Remove Product
       tbody
@@ -21,7 +21,7 @@ block content
           tr.dataRow(data-_id='#{product._id}')
             td
               img.small(src='#{product.imageurl}')
-            td.searchable #{product.name}
+            td.searchable.product #{product.name}
             td.searchable #{product.description}
             td.searchable.price $#{product.price} 
             td
