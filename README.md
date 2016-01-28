@@ -17,3 +17,7 @@ The user may search for a specific or multiple items in their cart. By typing in
 #### Updating Total Price
 
 The total price of items in the shopping cart will be automatically updated every time an item is deleted or edited. While the user is searching, the total price will reflect only the items shown during search.
+
+##### Give it a try
+
+https://secure-wildwood-41079.herokuapp.com/
