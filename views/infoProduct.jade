@@ -11,27 +11,27 @@ block content
         .row
           .col-xs-offset-2.col-xs-3
             h2 #{product.name}
-          .col-xs-4
+          .col-xs-3
             h2 #{product.description}
           .col-xs-2
             h2 $#{product.price}
-        form.form-horizontal#infoForm
+        form.form-horizontal#editForm
           .form-group.col-xs-6
             label.col-xs-3.control-label Product *
             .col-xs-9
-              input#name.form-control(type='text', placeholder='Product name', required='' value='#{product.name}')
+              input#nameEdit.form-control(type='text', placeholder='Product name', required='' value='#{product.name}')
           .form-group.col-xs-6
             label.col-xs-3.control-label Description
             .col-xs-9
-              input#description.input-medium.bfh-phone.form-control(type='text', data-format='+1 (ddd) ddd-dddd', placeholder='(Optional)' value='#{product.description}')
+              input#descriptionEdit.input-medium.bfh-phone.form-control(type='text', data-format='+1 (ddd) ddd-dddd', placeholder='(Optional)' value='#{product.description}')
           .form-group.col-xs-6
             label.col-xs-3.control-label Price *
             .col-xs-9
-              input#price.form-control(type='text', placeholder='$00.00', required='' value='#{product.price}')
+              input#priceEdit.form-control(type='text', placeholder='$00.00', required='' value='#{product.price}')
           .form-group.col-xs-6
             label.col-xs-3.control-label Image Url *
             .col-xs-9
-              input#imageurl.form-control(type='text', placeholder='Copy image address and paste here ', required='' value='#{product.imageurl}')
-          button#addCustomProduct.btn.btn-success.col-xs-offset-9.col-xs-2(type='submit') Save Edit
+              input#imageurlEdit.form-control(type='text', placeholder='Copy image address and paste here ', required='' value='#{product.imageurl}')
+          button#editComplete.btn.btn-success.col-xs-offset-9.col-xs-2(type='submit' data-_id='#{product._id}') Save Edit
 block script
-  script(src='../javascripts/main.js')
+  script(src='../../javascripts/main.js')

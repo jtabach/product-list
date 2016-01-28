@@ -38,4 +38,18 @@ router.get('/info/:productId', function(req, res) {
 	});
 });
 
+router.put('/edit/:productId', function(req, res) {
+	Product.findById(req.params.productId, function(err, product) {
+		console.log('newItem:', req.body);
+		product.name = req.body.name;
+		product.description = req.body.description;
+		product.price = req.body.price;
+		product.imageurl = req.body.imageurl;
+
+		product.save(function(err, savedProduct) {
+			res.status(err ? 400 : 200).send(err || savedProduct);
+		});
+	});
+});
+
 module.exports = router;

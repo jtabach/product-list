@@ -3,9 +3,10 @@
 $(document).ready(init);
 
 function init() {
-	$('form').submit(addCustomProduct);
+	$('#addForm').submit(addCustomProduct);
 	$('div').on('click', '.delete', removeProduct);
 	$('div').on('click', '.edit', editProduct);
+	$('#editForm').submit(editComplete);
 }
 
 function addCustomProduct(e) {
@@ -14,7 +15,6 @@ function addCustomProduct(e) {
 	var name = $('#name').val();
 	var description = $('#description').val();
 	var price = $('#price').val();
-	// var imageurl = "url(" + $('#imageurl').val() + ")";
 	var imageurl = $('#imageurl').val();
 
 	$.post('/products/add', {
@@ -52,4 +52,24 @@ function editProduct() {
 	.fail(function(err) {
 		console.log('err', err);
 	})
+}
+
+function editComplete(e) {
+	e.preventDefault();
+	var id = $(this).find('button').data('_id');
+	console.log(id);
+	$.ajax({
+		url: `/products/edit/${id}`,
+		type: 'PUT',
+		data: {
+			name: $('#nameEdit').val(),
+			description: $('#descriptionEdit').val(),
+			price: $('#priceEdit').val(),
+			imageurl: $('#imageurlEdit').val()
+		},
+		success: function(data) {
+			console.log('found id');
+			location.replace('/');
+		}
+	});
 }
