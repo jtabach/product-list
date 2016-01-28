@@ -96,19 +96,40 @@ function searchList() {
 }
 
 function sortByName() {
+	var mult = $(this).data('sort');
 	$rows.sort(function(a,b) {
-		var aVal = $(a).children('.product').text().toLowerCase()
+		var aVal = $(a).children('.product').text().toLowerCase();
 		var bVal = $(b).children('.product').text().toLowerCase();
-		return (aVal<bVal) ? -1 : 1;
+		return ((aVal<bVal) ? -1 : 1) * mult;
 	});
+	$(this).data('sort', -mult);
 	$('tbody').empty().append($rows);
 }
 
 function sortByPrice() {
+	var mult = $(this).data('sort');
 	$rows.sort(function(a,b) {
 		var aVal = $(a).children('.price').text().slice(1);
 		var bVal = $(b).children('.price').text().slice(1);
-		return aVal-bVal;
+		return (aVal - bVal) * mult;
 	});
+	$(this).data('sort', -mult);
 	$('tbody').empty().append($rows);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
